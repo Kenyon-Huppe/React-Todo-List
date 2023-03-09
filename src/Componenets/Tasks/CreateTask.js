@@ -4,7 +4,7 @@ import React from 'react'
 const CreateTask = ({ changeHandler, addTask, value }) => {
     return (
         <div>
-            <input type="text" onChange={changeHandler} value={value} />
+            <input type="text" autoFocus onChange={changeHandler} value={value} />
             <button onClick={addTask}>Create Task</button>
         </div>
     )

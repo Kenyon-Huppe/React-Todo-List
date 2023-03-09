@@ -2,9 +2,23 @@ import React from 'react';
 import Task from './Task';
 
 // holds tasks that have been created
-const TaskManager = ({ taskData, updateTask, deleteTask }) => {
-    console.log('tm');
-    console.log(taskData);
+const TaskManager = ({ taskData, setTaskData }) => {
+
+    // updates task
+    const updateTask = (id, data) => {
+        const tmpTask = {
+            id: id,
+            data: data
+        };
+
+        setTaskData(taskData.map((task) => task.id === id ? task = tmpTask : task = task));
+    };
+
+    // deletes task
+    const deleteTask = (id) => {
+        setTaskData(taskData.filter((task) => task.id !== id));
+    }
+
     return (
         <div>
             {taskData.map((taskElement) => {
